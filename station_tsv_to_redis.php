@@ -12,11 +12,11 @@ foreach ($file as $line)
 }
 
 $n = count($fields);
-$i = 9; // fields[9]‚©‚ç‚ªÀƒf[ƒ^
+$i = 9; // fields[9]ã‹ã‚‰ãŒå®Ÿãƒ‡ãƒ¼ã‚¿
 
 for( ; $i < $n; $i++ ){
 
-    // fields[i][10]=Œo“x,[11]=ˆÜ“x,[3]=‰w–¼
+    // fields[i][10]=çµŒåº¦,[11]=ç·¯åº¦,[3]=é§…å
     echo "GEOADD ekipos " .
     $fields[$i][10] . " " .
     $fields[$i][11] . " " .
