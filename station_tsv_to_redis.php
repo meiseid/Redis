@@ -4,8 +4,6 @@ $file = new SplFileObject('station20151215free.txt', 'r');
 $file->setFlags(SplFileObject::READ_CSV | SplFileObject::SKIP_EMPTY | SplFileObject::READ_AHEAD);
 $file->setCsvControl("\t");
 
-$i = 0;
-
 foreach ($file as $line)
 {
     $fields[] = $line;
