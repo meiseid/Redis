@@ -7,7 +7,7 @@ var rad = 2000;
 var cnt = 5;
 
 var argArray = ['ekipos', lng, lat, rad, 'm', 'WITHDIST', 'ASC'];
-argArray.push('COUNT', cnt);
+argArray.push('COUNT', cnt); //COUNT 5 などとするにはこうpushするのがポイント
 
 var hrstart = process.hrtime(); //計測開始
 client.send_command('GEORADIUS_RO', argArray, function (err, reply) {
