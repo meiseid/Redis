@@ -1,3 +1,4 @@
+var performance = require('perf_hooks').performance;
 var redis = require('redis');
 var client = redis.createClient();
 
@@ -9,11 +10,14 @@ var cnt = 5;
 var argArray = ['ekipos', lng, lat, rad, 'm', 'WITHDIST', 'ASC'];
 argArray.push('COUNT', cnt); //COUNT 5 などとするにはこうpushするのがポイント
 
-var hrstart = process.hrtime(); //計測開始
+var micro_fr = (Date.now() + performance.now()) * 1000;
+
 client.send_command('GEORADIUS_RO', argArray, function (err, reply) {
-	var hrend = process.hrtime(hrstart); //計測終了
+
+	var micro_to = (Date.now() + performance.now()) * 1000;
+
 	var data = "GEORADIUS_RO ekipos " + lng + " " + lat + " " + rad + " " + "m" + " " + "WITHDIST" + " " + "COUNT" + " " + cnt + " " + "ASC" + "\n" +
-	"関数実行時間 " + hrend[0] + "秒" + (hrend[1] / 1000000) + "ミリ秒\n";
+	"関数実行時間 " + (micro_to - micro_fr) + "マイクロ秒\n";
 	if(reply){
 		var i,n = reply.length;
 		data += "" + n + "個の駅が該当しました。\n";
