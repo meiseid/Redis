@@ -4,11 +4,11 @@ var client = redis.createClient();
 
 var lat = 35.729719;
 var lng = 139.554424;
-var rad = 2000;
-var cnt = 5;
+var rad = 5000;
+var cnt = 20;
 
 var argArray = ['ekipos', lng, lat, rad, 'm', 'WITHDIST', 'ASC'];
-argArray.push('COUNT', cnt); //COUNT 5 などとするにはこうpushするのがポイント
+argArray.push('COUNT', cnt); //COUNT 20 などとするにはこうpushするのがポイント
 
 var micro_fr = (Date.now() + performance.now()) * 1000;
 
