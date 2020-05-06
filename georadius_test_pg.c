@@ -19,8 +19,8 @@ int main(int argc, char **argv) {
 		fprintf(stderr, "PQconnectdb error\n");
 		if(conn){
 			PQfinish(conn);
-			return (-1);
 		}
+		return (-1);
 	}
 
 	sprintf(sql,
